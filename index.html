@@ -979,6 +979,83 @@
                 grid-template-columns: 1fr
             }
         }
+
+        /* Ad slots */
+        .ad-wrap {
+            width: 100%;
+            margin: 18px 0 22px;
+        }
+
+        .ad-slot {
+            width: 100%;
+            min-height: 110px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .03));
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .16), inset 0 1px 0 rgba(255, 255, 255, .04);
+            padding: 14px 16px;
+            overflow: hidden;
+        }
+
+        .ad-label {
+            font-size: .72rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .ad-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px dashed rgba(255, 255, 255, .08);
+        }
+
+        .ad-placeholder {
+            color: rgba(255, 255, 255, .45);
+            font-size: .88rem;
+            text-align: center;
+        }
+
+        .ad-sticky-mobile {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .ad-sticky-mobile {
+                display: block;
+                position: fixed;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                z-index: 9999;
+            }
+
+            .ad-sticky-mobile .ad-slot {
+                min-height: 72px;
+                padding: 10px 12px;
+                backdrop-filter: blur(12px);
+            }
+
+            .ad-sticky-mobile .ad-label {
+                margin-bottom: 6px;
+                font-size: .64rem;
+            }
+
+            .ad-sticky-mobile .ad-inner {
+                min-height: 44px;
+            }
+
+            body {
+                padding-bottom: 120px;
+            }
+        }
+
     </style>
 </head>
 
@@ -1022,6 +1099,16 @@
                     </div>
                 </div>
             </aside>
+        </div>
+    </div>
+    <div class="container">
+        <div class="ad-wrap">
+            <div class="ad-slot">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-inner">
+                    <div class="ad-placeholder">Hero banner ad area</div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container section hidden" id="fixtures">
@@ -1079,6 +1166,16 @@
             </div>
         </section>
     </div>
+    <div class="container">
+        <div class="ad-wrap">
+            <div class="ad-slot">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-inner">
+                    <div class="ad-placeholder">Mid-page ad area</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container section hidden" id="thirds">
         <section class="panel">
             <h2>Eight best third-placed teams</h2>
@@ -1097,6 +1194,14 @@
             <p>Once your groups and eight advancing third-placed teams are ready, the Round of 32 fills automatically.
                 Then just click winners through to the final.</p>
             <div id="bracketWarning" class="helper"></div>
+            <div class="ad-wrap">
+                <div class="ad-slot">
+                    <div class="ad-label">Advertisement</div>
+                    <div class="ad-inner">
+                        <div class="ad-placeholder">Stats ad area</div>
+                    </div>
+                </div>
+            </div>
             <div id="statsMount"></div>
             <div class="bracket-grid" id="bracketGrid"></div>
             <div id="championMount"></div>
@@ -1579,6 +1684,14 @@
         function resetAll() { STATE.rankings = {}; STATE.bestThirds = []; STATE.winners = {}; STATE.step = 1; STATE.view = "predictor"; buildGroupCards(); updateGroupWarning(); renderThirds(); renderBracket(); showView("predictor") }
         buildGroupCards(); updateGroupWarning(); renderFixtures(); renderThirds(); renderBracket(); showView("predictor"); syncStepVisibility();
     </script>
+    <div class="ad-sticky-mobile">
+        <div class="ad-slot">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-inner">
+                <div class="ad-placeholder">Mobile sticky ad</div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
